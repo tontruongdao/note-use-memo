@@ -6,10 +6,12 @@ const App = () => {
   const [number, setNumber] = useState(0)
   const [dark, setDark] = useState(false)
   
-  const themeStyles = {
-    backgroundColor: dark ? 'teal' : '#282c34',
-    color: dark ? 'cream' : 'lightsteelblue'
-  }
+  const themeStyles = useMemo(() => {
+    return {
+      backgroundColor: dark ? 'teal' : '#282c34',
+      color: dark ? 'cream' : 'lightsteelblue'
+    }
+  }, [dark])
 
   
   const doubleNumber = useMemo(() => {
