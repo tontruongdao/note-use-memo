@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,9 +11,10 @@ const App = () => {
     color: dark ? 'cream' : 'lightsteelblue'
   }
 
-  const doubleNumber = slowFunction(number)
-
   
+  const doubleNumber = useMemo(() => {
+    return slowFunction(number)
+  }, [number])
 
   return (
     <div className="App">
